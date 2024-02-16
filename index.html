@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Les petits plats</title>
+  </head>
+  <body>
+    <header>
+      <img
+        class="banniere"
+        src="./assets/PhotoCouverture.png"
+      />
+      <div id="container_logo">
+        <img id="logo" src="./assets/Logo.png" />
+      </div>
+      <div class="header_title">
+        <h3 class="title_banniere">
+          CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET
+          DÉLICIEUSES
+        </h3>
+      </div>
+      <div class="container_search">
+        <input
+          class="search"
+          type="search"
+          placeholder="Rechercher une recette, un ingrédient, ..."
+        />
+        <img class="img-default loupe_icon" src="./assets/icones/loupe.svg" alt="Loupe noir">
+
+      </div>
+    </header>
+
+    <main>
+      <section class="section_select">
+        <div class="container_select">
+
+          <div class="select_div">
+
+            <select name="" class="form-select select" aria-label="Default select example">
+              <option disabled selected>Ingrédients</option>
+            </select>
+
+            <select name="" class="select">
+              <option disabled selected>Appareils</option>
+            </select>
+
+            <select name="" class="select">
+              <option disabled selected>Ustensiles</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="nb_recettes">
+          <span class="nbRecettes">1500 recettes</span>
+        </div>
+      </section>
+
+      <section id="section_card">
+        
+      </section>
+
+      
+    </main>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./scripts/template/card.js"></script>
+  </body>
+</html>

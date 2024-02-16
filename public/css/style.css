@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 668px;
+  position: relative;
+  text-align: center;
+}
+
+.banniere {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#container_logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+
+.header_title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.title_banniere {
+  display: flex;
+  color: #ffd15b;
+  text-align: center;
+  font-family: "Anton";
+  font-size: 44px;
+  line-height: normal;
+  margin: 0;
+  padding: 10px;
+}
+
+.container_search {
+  position: absolute;
+  width: 68%;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  height: 72px;
+  border-radius: 11px;
+  color: #7a7a7a;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  padding-left: 32px;
+}
+
+.loupe_icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  object-fit: none;
+  border-radius: 10px;
+}
+
+.loupe_icon:hover {
+  background-image: url("/assets/Img - Les petits plats/icones/loupeJaune.png");
+}
+
+/* // FIN DU HEADER // */
+/* // MAIN //  */
+
+main {
+  background-color: #ededed;
+  padding: 50px 80px;
+}
+
+.section_select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container_select {
+  width: 65%;
+  display: flex;
+}
+
+.select_div {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.select {
+  width: 28%;
+  display: inline-flex;
+  padding: 17px 16px;
+  align-items: center;
+  gap: 63px;
+  border-radius: 11px;
+  background: #fff;
+  color: #1b1b1b;
+  font-family: "Manrope", sans-serif;
+}
+
+.nb_recettes {
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nbRecettes {
+  font-family: "Anton";
+  font-size: 21px;
+  font-weight: 400;
+}
+
+/* --- SECTION CARD --- */
+
+#section_card {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-container {
+  position: relative; 
+}
+
+.card {
+  margin: 20px 0px;
+  width: 30%;
+  height: 750px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+
+.card-img {
+  height: 250px;
+  width: 100%;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 2rem 1.25rem 1.25rem 1.25rem;
+  flex: none;
+  min-height: unset;
+}
+
+.preparation-time {
+  position: absolute; 
+  top: 20px; 
+  right: 10px; 
+  background-color: #FFD15B;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-family: 'Manrope';
+  font-size: 12px;
+  color: #1B1B1B;
+}
+
+.card-title {
+  color: #000;
+  font-family: "Anton";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.recette {
+  padding-top: 1.25rem;
+  height: 130px;
+  overflow-y: scroll;
+}
+
+.card-sousTitle {
+  color: #7a7a7a;
+  font-family: "Manrope";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+}
+
+.card-text {
+  /* height: 150px; */
+  padding-top: 0.75rem;
+  color: #1b1b1b;
+  font-family: "Manrope";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-ingredient {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-li {
+  display: flex;
+  flex-direction: column; /* Utiliser flex-direction: column pour afficher les éléments les uns en dessous des autres */
+  width: 45%;
+  margin: 10px 0px;
+}
+
+.title-ingredient {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.quantity-unit {
+  color: #7A7A7A;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px; /* Pour ajouter un peu d'espace entre la quantité/unité et le nom de l'ingrédient */
+}
