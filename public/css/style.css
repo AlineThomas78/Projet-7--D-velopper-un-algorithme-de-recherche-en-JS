@@ -94,7 +94,7 @@ main {
 .section_select {
   width: 100%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .container_select {
@@ -105,19 +105,142 @@ main {
 .select_div {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   width: 90%;
 }
 
-.select {
-  width: 28%;
-  display: inline-flex;
-  padding: 17px 16px;
+.containerTitle {
+  display: flex;
+  width: 100%;
   align-items: center;
-  gap: 63px;
-  border-radius: 11px;
-  background: #fff;
-  color: #1b1b1b;
-  font-family: "Manrope", sans-serif;
+  justify-content: space-around;
+}
+
+.title {
+  font-family: "Manrope";
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#searchInput {
+  border: 2px solid #c6c6c6;
+}
+
+.containerList {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20px;
+  width: 100%;
+}
+
+#chevron-up {
+  height: 20px;
+  width: 20px;
+  display: none;
+}
+
+#chevron-down {
+  height: 20px;
+  width: 20px;
+}
+
+.chevron-up {
+  height: 20px;
+  width: 20px;
+  display: none;
+}
+
+.chevron-down {
+  height: 20px;
+  width: 20px;
+}
+
+.toggle {
+  /* height: 50px; */
+  background-color: white;
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerTitle {
+  height: 50px;
+  width: 100%;
+}
+
+/* #toggleAppareil {
+  height: 50px;
+  background-color: white;
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+/* #toggleUstensil {
+  background-color: white;
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: 200px;
+  width: 100%;
+}
+
+#listeIngredients {
+  margin-top: 10px;
+  max-height: 150px;
+}
+
+#listeAppareils {
+  margin-top: 10px;
+  max-height: 150px;
+}
+
+#listeUstensils {
+  margin-top: 10px;
+  max-height: 150px;
+}
+/* 
+#contentAppareils {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: 200px;
+} */
+
+#contentUstensil {
+  display: none;
+}
+
+.titleIngredient {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  margin: 0;
+  padding: 10px;
 }
 
 .nb_recettes {
@@ -144,7 +267,7 @@ main {
 }
 
 .img-container {
-  position: relative; 
+  position: relative;
 }
 
 .card {
@@ -169,15 +292,15 @@ main {
 }
 
 .preparation-time {
-  position: absolute; 
-  top: 20px; 
-  right: 10px; 
-  background-color: #FFD15B;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: #ffd15b;
   padding: 5px 15px;
   border-radius: 15px;
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-size: 12px;
-  color: #1B1B1B;
+  color: #1b1b1b;
 }
 
 .card-title {
@@ -219,7 +342,7 @@ main {
 
 .list {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0;
   padding: 0;
@@ -228,7 +351,7 @@ main {
 
 .list-li {
   display: flex;
-  flex-direction: column; /* Utiliser flex-direction: column pour afficher les éléments les uns en dessous des autres */
+  flex-direction: column;
   width: 45%;
   margin: 10px 0px;
 }
@@ -240,8 +363,8 @@ main {
 }
 
 .quantity-unit {
-  color: #7A7A7A;
+  color: #7a7a7a;
   font-size: 14px;
   font-weight: 400;
-  margin-top: 4px; /* Pour ajouter un peu d'espace entre la quantité/unité et le nom de l'ingrédient */
+  margin-top: 4px;
 }

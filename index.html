@@ -4,27 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./public/css/style.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <title>Les petits plats</title>
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Les petits plats</title>
   </head>
   <body>
     <header>
-      <img
-        class="banniere"
-        src="./assets/PhotoCouverture.png"
-      />
+      <img class="banniere" src="./assets/PhotoCouverture.png" />
       <div id="container_logo">
         <img id="logo" src="./assets/Logo.png" />
       </div>
@@ -40,44 +39,91 @@
           type="search"
           placeholder="Rechercher une recette, un ingrédient, ..."
         />
-        <img class="img-default loupe_icon" src="./assets/icones/loupe.svg" alt="Loupe noir">
-
+        <img
+          class="img-default loupe_icon"
+          src="./assets/icones/loupe.svg"
+          alt="Loupe noir"
+        />
       </div>
     </header>
 
     <main>
       <section class="section_select">
         <div class="container_select">
-
           <div class="select_div">
+            <div class="toggle" id="toggleIngredients">
+              <div class="containerTitle">
+                <p id="titleIngredient" class="title">Ingrédient </p>
+              <svg id="chevron-upIngredients" class="chevron-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+              <svg id="chevron-downIngredients" class="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+            </div>
+              
+              <div class="content" id="contentIngredient">
+                <div class="searchContainer">
+                  <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Rechercher..."
+                  />
+                </div>
+                <div id="listeIngredients"></div>
+              </div>
+            </div>
 
-            <select name="" class="form-select select" aria-label="Default select example">
-              <option disabled selected>Ingrédients</option>
-            </select>
+            <div class="toggle" id="toggleAppareil">
+             <div class="containerTitle">
+              <p id="titleAppareils" class="title">Appareils </p>
+              <svg id="chevron-upAppareils" class="chevron-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+              <svg id="chevron-downAppareils" class="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+             </div>
 
-            <select name="" class="select">
-              <option disabled selected>Appareils</option>
-            </select>
+             <div class="content" id="contentAppareils">
+              <div class="searchContainer">
+                <input
+                  type="search"
+                  id="searchInput"
+                  placeholder="Rechercher..."
+                />
+              </div>
+              <div id="listeAppareils"></div>
+            </div>
 
-            <select name="" class="select">
-              <option disabled selected>Ustensiles</option>
-            </select>
+            </div>
 
+            <div class="toggle" id="toggleUstensil">
+              <div class="containerTitle">
+                <p id="titleUstensil" class="title">Ustensil </p>
+                <svg id="chevron-upUstensil" class="chevron-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+                <svg id="chevron-downUstensil" class="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+             </div>
+
+             <div class="content" id="contentUstensil">
+              <div class="searchContainer">
+                <input
+                  type="search"
+                  id="searchInput"
+                  placeholder="Rechercher..."
+                />
+              </div>
+              <div id="listeUstensils"></div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="nb_recettes">
-          <span class="nbRecettes">1500 recettes</span>
+          <div class="test">
+            <span class="nbRecettes">1500 recettes</span>
+          </div>
         </div>
       </section>
 
-      <section id="section_card">
-        
-      </section>
-
-      
+      <section id="section_card"></section>
     </main>
     <script type="module" src="./index.js"></script>
     <script type="module" src="./scripts/template/card.js"></script>
+    <script type="module" src="./scripts/template/ingredients.js"></script>
+    <script type="module" src="./scripts/template/appareils.js"></script>
+    <script type="module" src="./scripts/template/ustensils.js"></script>
   </body>
 </html>
