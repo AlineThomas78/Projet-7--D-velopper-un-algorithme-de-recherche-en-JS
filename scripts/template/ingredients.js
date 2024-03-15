@@ -12,6 +12,6 @@ export function listeIngredients(allIngredientsListe) {
             li.textContent = ingredient;
             ul.appendChild(li);
         });
-    
+    debugger
         return ul;
     }
