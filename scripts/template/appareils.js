@@ -1,3 +1,5 @@
+import { addTag } from "../../index.js";
+
 export function listeAppareils(appareils) {
     // Créer un ensemble pour stocker les appareils sans doublons
     const appareilsSet = new Set(appareils);
@@ -13,6 +15,12 @@ export function listeAppareils(appareils) {
     appareilsListe.forEach(appareil => {
         const li = document.createElement('li');
         li.textContent = appareil;
+        li.classList.add('resultItem'); 
+
+        // Ajouter un gestionnaire d'événements au clic sur chaque ingrédient
+        li.addEventListener('click', function() {
+          addTag(appareil); // Ajouter l'ingrédient comme tag
+        });
         ul.appendChild(li);
     });
 

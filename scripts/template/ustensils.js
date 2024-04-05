@@ -1,16 +1,24 @@
- export function listeUstensils(ustensils) {
-    const ustensilesSet = new Set(ustensils);
+import { addTag } from "../../index.js";
 
-    const ustensilesListe = Array.from(ustensilesSet);
+export function listeUstensils(ustensils) {
+  const ustensilesSet = new Set(ustensils);
 
-    const ul = document.createElement('ul');
-    ul.classList.add('containerList');
+  const ustensilesListe = Array.from(ustensilesSet);
 
-    ustensilesListe.forEach(ustensile => {
-        const li = document.createElement('li');
-        li.textContent = ustensile;
-        ul.appendChild(li);
+  const ul = document.createElement("ul");
+  ul.classList.add("containerList");
+
+  ustensilesListe.forEach((ustensile) => {
+    const li = document.createElement("li");
+    li.textContent = ustensile;
+    li.classList.add('resultItem'); 
+
+    // Ajouter un gestionnaire d'événements au clic sur chaque ingrédient
+    li.addEventListener("click", function () {
+      addTag(ustensile); // Ajouter l'ingrédient comme tag
     });
+    ul.appendChild(li);
+  });
 
-    return ul;
+  return ul;
 }
