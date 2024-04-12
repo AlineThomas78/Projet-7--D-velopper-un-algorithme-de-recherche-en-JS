@@ -290,11 +290,28 @@ function displaySearchResults(results) {
   // Nettoie le conteneur des recettes actuellement affichées
   recipeContainer.innerHTML = "";
 
-  // Afficher uniquement les recettes qui correspondent aux résultats de la recherche
-  results.forEach((recipe) => {
-    const recipeElement = createRecipeCard(recipe);
-    recipeContainer.appendChild(recipeElement);
-  });
+  if (results.length === 0) {
+    // Afficher un message d'erreur personnalisé
+    const searchInput = document.querySelector(".search");
+    const searchQuery = searchInput.value.trim();
+
+    const errorMessage = document.createElement("div");
+    errorMessage.classList.add("error-message");
+    
+    const errorMessageText = document.createElement("p");
+    errorMessageText.classList.add("errorMessageText");
+    errorMessageText.innerHTML = `Aucune recette ne contient '<strong>${searchQuery}</strong>'. Vous pouvez chercher "tarte aux pommes", "poisson", etc.`;
+    
+    recipeContainer.appendChild(errorMessage);
+    errorMessage.appendChild(errorMessageText);
+  } else {
+    // Afficher uniquement les recettes qui correspondent aux résultats de la recherche
+    results.forEach((recipe) => {
+      const recipeElement = createRecipeCard(recipe);
+      recipeContainer.appendChild(recipeElement);
+    });
+  }
+
   // Mettre à jour le nombre de recettes affichées
   updateSearchCount(results.length);
 

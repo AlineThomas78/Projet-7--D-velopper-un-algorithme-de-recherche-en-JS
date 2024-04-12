@@ -369,3 +369,21 @@ main {
 .resultItem:hover{
   background-color:#FFD15B;
 }
+
+/* // AUCUNE RECETTE TROUVEE // */
+
+.error-message {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.errorMessageText {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #FFD15B;
+  padding: 1rem 0;
+  border-radius: 10px;
+}
