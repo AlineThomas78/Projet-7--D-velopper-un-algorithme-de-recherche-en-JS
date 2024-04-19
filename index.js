@@ -478,8 +478,10 @@ export function addTag(tagName, tagType) {
 async function globalSearch(filters) {
   activeFilters = { ...filters };
   const allRecipes = await getRecipes();
-  const recipesResult = allRecipes.filter((recipe) => {
-    return (
+  let recipesResult = [];
+  for (let index = 0; index < allRecipes.length; index++) {
+    const recipe = allRecipes[index];
+    if (
       (filters.searchTerm && filters.searchTerm.length >= 3
         ? recipe.name.toLowerCase().includes(filters.searchTerm) ||
           recipe.description.toLowerCase().includes(filters.searchTerm)
@@ -497,8 +499,11 @@ async function globalSearch(filters) {
             filters.ustensils.includes(_ustensil.toLowerCase())
           )
         : true)
-    );
-  });
+    ) {
+      recipesResult.push(recipe);
+    }
+  }
+
   updatedRecipes = recipesResult;
   displayRecipes();
   updateFiltersContent();
