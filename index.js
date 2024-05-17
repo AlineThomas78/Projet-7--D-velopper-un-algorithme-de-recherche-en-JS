@@ -167,7 +167,7 @@ async function displayIngredients() {
     });
   });
 
-  allIngredientsListe = Array.from(allIngredientsSet); // Initialiser allIngredientsListe
+  allIngredientsListe = Array.from(allIngredientsSet);
 
   const ingredientsElement = listeIngredients(allIngredientsListe);
   listeIngredientsContainer.appendChild(ingredientsElement);
@@ -189,8 +189,7 @@ async function displayAppareils() {
     allAppareilsSet.add(appareil);
   });
 
-  allAppareilsListe = Array.from(allAppareilsSet); // Initialiser allAppareilsListe
-
+  allAppareilsListe = Array.from(allAppareilsSet); 
   const appareilsElement = listeAppareils(allAppareilsListe);
   listeAppareilsContainer.appendChild(appareilsElement);
 }
@@ -213,7 +212,7 @@ async function displayUstensils() {
     });
   });
 
-  allUstensilsListe = Array.from(allUstensilsSet); // Initialiser allUstensilsListe
+  allUstensilsListe = Array.from(allUstensilsSet); 
 
   const ustensilsElement = listeUstensils(allUstensilsListe);
   listeUstensilsContainer.appendChild(ustensilsElement);
@@ -224,7 +223,7 @@ displayUstensils();
 //SECTION RECHE SUR L INPUT CENTRAL //
 const searchInput = document.querySelector(".search");
 searchInput.addEventListener("input", async function (event) {
-  // Récupérer la valeur saisie dans l'input de recherche
+  // Récupére la valeur saisie dans l'input de recherche
   const searchQuery = event.target.value.trim().toLowerCase();
   globalSearch({
     ...activeFilters,
@@ -382,12 +381,12 @@ async function handleAppareilSearch(event) {
     return;
   }
 
-  // Filtrer les ingrédients en fonction de la valeur de recherche
+  // Filtrer les appareils en fonction de la valeur de recherche
   const filteredAppareils = filteredAppareilList.filter((appliance) =>
     appliance.toLowerCase().includes(searchQuery)
   );
 
-  // Mettre à jour l'affichage des ingrédients filtrés
+  // Mettre à jour l'affichage des appareils filtrés
   updateFilteredResults(filteredAppareils, "listeAppareils", listeAppareils);
 }
 
@@ -401,12 +400,12 @@ async function handleUstensilSearch(event) {
     return;
   }
 
-  // Filtrer les ingrédients en fonction de la valeur de recherche
+  // Filtrer les ustensils en fonction de la valeur de recherche
   const filteredUstensils = filteredUstensilList.filter((ustensils) =>
     ustensils.toLowerCase().includes(searchQuery)
   );
 
-  // Mettre à jour l'affichage des ingrédients filtrés
+  // Mettre à jour l'affichage des ustensils filtrés
   updateFilteredResults(filteredUstensils, "listeUstensils", listeUstensils);
 }
 
@@ -427,7 +426,6 @@ function updateFilteredResults(filteredItems, containerId, listFunction) {
 
   // Utiliser la fonction listFunction pour générer la nouvelle liste
   const newList = listFunction(filteredList);
-  // Ajouter la nouvelle liste au conteneur
   container.appendChild(newList);
 }
 
@@ -448,6 +446,7 @@ export function addTag(tagName, tagType) {
     tagElement.remove();
     activeFilters = {
       ...activeFilters,
+      // copier tous les filtres du tagType sauf celui que l'on veut enlever
       [tagType]: activeFilters[tagType].filter(
         (filter) => filter !== tagName.toLowerCase()
       ),
@@ -502,7 +501,48 @@ async function globalSearch(filters) {
   updatedRecipes = recipesResult;
   displayRecipes();
   updateFiltersContent();
+
+  // Vérifier si la recherche a au moins 3 caractères et aucune correspondance n'a été trouvée
+  if (filters.searchTerm && filters.searchTerm.length >= 3 && recipesResult.length === 0) {
+    displayErrorMessage(filters.searchTerm);
+  } else {
+    // Si la recherche est vide ou ne remplit pas les conditions, masquer le message d'erreur
+    hideErrorMessage();
+  }
+
   return recipesResult;
+}
+
+function displayErrorMessage(searchTerm) {
+  const errorContainer = document.getElementById("errorContainer");
+  const errorMessageElement = document.createElement("p");
+  errorMessageElement.classList.add('errorP');
+
+  // Créer le contenu du message avec un span pour le terme de recherche
+  const message = document.createElement("span");
+  message.textContent = `Aucune recette ne contient `;
+  
+  const searchTermSpan = document.createElement("span");
+  searchTermSpan.classList.add('searchTermClass'); 
+  searchTermSpan.textContent = `‘${searchTerm}’`;
+
+  const messageEnd = document.createElement("span");
+  messageEnd.textContent = `. vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
+
+  // Assembler les parties du message
+  errorMessageElement.appendChild(message);
+  errorMessageElement.appendChild(searchTermSpan);
+  errorMessageElement.appendChild(messageEnd);
+
+  errorContainer.innerHTML = ""; 
+  errorContainer.appendChild(errorMessageElement);
+  errorContainer.style.display = "block";
+}
+
+// Fonction pour masquer le message d'erreur
+function hideErrorMessage() {
+  const errorContainer = document.getElementById("errorContainer");
+  errorContainer.style.display = "none";
 }
 
 function updateFiltersContent() {
